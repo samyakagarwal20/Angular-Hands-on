@@ -1,12 +1,14 @@
 <div class="container">
     <div class="row">
         <label>Server Name</label>
-        <input type="text" class="form-control" (input)="onUpdateServerName($event)">
+        <input type="text" class="form-control" placeholder="using Event binding" (input)="onUpdateServerName($event)">
+        <input type="text" class="form-control" placeholder="using Two-way Binding" [(ngModel)]="serverNameViaTwoWayBinding">
     </div>
     <div class="row">
         <!-- dynamically changing the value of disabled attribute at runtime using property binding -->
         <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
-        <p>Server Name : {{ serverName }}</p>
+        <p>Server Name (via event binding) : {{ serverNameViaEventBinding }}</p>
+        <p>Server Name (via two-way binding) : {{ serverNameViaTwoWayBinding }}</p>
     </div>
     <div class="row">
         <p [innerText]="'Status of button : ' + (allowNewServer ? 'enabled' : 'disabled')"></p>
