@@ -1,5 +1,18 @@
-<!-- dynamically changing the value of disabled attribute at runtime using property binding -->
-<button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
-<p [innerText]="'Status of button : ' + (allowNewServer ? 'enabled' : 'disabled')"></p>
+<div class="container">
+    <div class="row">
+        <label>Server Name</label>
+        <input type="text" class="form-control" (input)="onUpdateServerName($event)">
+    </div>
+    <div class="row">
+        <!-- dynamically changing the value of disabled attribute at runtime using property binding -->
+        <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+        <p>Server Name : {{ serverName }}</p>
+    </div>
+    <div class="row">
+        <p [innerText]="'Status of button : ' + (allowNewServer ? 'enabled' : 'disabled')"></p>
+        <p class="serverCreationStatus">Server creation status : {{ serverCreationStatus }}</p>
+    </div>
+</div>
+
 <app-server></app-server>
 <app-server></app-server>

@@ -1,3 +1,6 @@
 p {
     color: rgba(187, 20, 220, 0.904);
 }
+p.serverCreationStatus {
+    color: rgb(255, 81, 0);
+}
