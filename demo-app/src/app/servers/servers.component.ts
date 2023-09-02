@@ -17,6 +17,7 @@ export class ServersComponent {
   serverCreated: boolean = false;
   serverNameViaEventBinding: string = '';
   serverNameViaTwoWayBinding: string = '';
+  servers: Array<string> = ['TestServer 1', 'TestServer 2'];
 
   constructor() {
     setTimeout(() => {
@@ -26,7 +27,9 @@ export class ServersComponent {
 
   onCreateServer() {
     this.serverCreated = true;
+    this.servers.push(this.serverNameViaEventBinding);
     this.serverCreationStatus = "New server created with name " + (this.serverNameViaEventBinding ? this.serverNameViaEventBinding : '<empty>') + " using event binding";
+    this.serverCreated = false;
   }
 
   onUpdateServerName(event: InputEvent) {
