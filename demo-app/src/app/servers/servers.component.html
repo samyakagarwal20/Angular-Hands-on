@@ -12,7 +12,10 @@
     </div>
     <div class="row">
         <p [innerText]="'Status of button : ' + (allowNewServer ? 'enabled' : 'disabled')"></p>
-        <p class="serverCreationStatus">Server creation status : {{ serverCreationStatus }}</p>
+        <p class="serverCreationStatus" *ngIf="serverCreated; else noServersCreated">Server creation status : {{ serverCreationStatus }}</p>
+        <ng-template #noServersCreated>
+            <p class="noServers">No servers created yet!</p>
+        </ng-template>
     </div>
 </div>
 

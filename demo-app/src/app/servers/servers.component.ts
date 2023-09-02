@@ -14,6 +14,7 @@ import { Component } from '@angular/core';
 export class ServersComponent {
   allowNewServer: boolean = false;
   serverCreationStatus: string = 'No servers created';
+  serverCreated: boolean = false;
   serverNameViaEventBinding: string = '';
   serverNameViaTwoWayBinding: string = '';
 
@@ -24,7 +25,8 @@ export class ServersComponent {
   }
 
   onCreateServer() {
-    this.serverCreationStatus = "New server created!";
+    this.serverCreated = true;
+    this.serverCreationStatus = "New server created with name " + (this.serverNameViaEventBinding ? this.serverNameViaEventBinding : '<empty>') + " using event binding";
   }
 
   onUpdateServerName(event: InputEvent) {
